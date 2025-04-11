@@ -63,13 +63,13 @@
       margin: auto;
     }
 
-    .products {
+    .products, .courses {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
 
-    .card {
+    .card, .course-card {
       background: #1c1c2c;
       padding: 20px;
       border-radius: 15px;
@@ -77,21 +77,21 @@
       box-shadow: 0 0 10px #00000055;
     }
 
-    .card img {
+    .card img, .course-card img {
       width: 100%;
       border-radius: 10px;
     }
 
-    .card h3 {
+    .card h3, .course-card h3 {
       color: #00e0ff;
     }
 
-    .card p {
+    .card p, .course-card p {
       color: #ccc;
       font-size: 14px;
     }
 
-    .card button {
+    .card button, .course-card button {
       margin-top: 10px;
       background: #00e0ff;
       color: #000;
@@ -109,7 +109,6 @@
       color: #777;
     }
 
-    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -144,46 +143,36 @@
       color: #ff5f5f;
     }
 
-    .courses {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .course-card {
-      background: #2c2c3f;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    .course-card img {
+    #designerPanel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(to right, #f87171, #ec4899, #ef4444);
+      position: fixed;
+      z-index: 99999;
       width: 100%;
-      border-radius: 8px;
-    }
-
-    .course-card h3 {
-      color: #00e0ff;
-    }
-
-    .course-card p {
-      color: #ccc;
-      font-size: 14px;
-    }
-
-    .course-card button {
-      background: #00e0ff;
-      color: #000;
-      padding: 8px 15px;
-      border: none;
-      border-radius: 25px;
-      margin-top: 10px;
-      cursor: pointer;
+      top: 0;
+      left: 0;
     }
   </style>
 </head>
 <body>
+
+  <div id="designerPanel">
+    <div class="relative">
+      <div class="absolute -top-2 -left-2 -right-2 -bottom-2 rounded-lg bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow-lg animate-pulse"></div>
+      <div class="bg-white p-16 rounded-lg shadow-2xl w-80 relative z-10">
+        <h2 class="text-center text-3xl font-bold mb-10 text-gray-800">Panel Trabajo</h2>
+        <form onsubmit="return checkDesignerAccess(event)">
+          <input type="text" placeholder="Usuario" class="w-full h-12 border border-gray-800 px-3 rounded-lg mb-4" />
+          <input type="password" id="designerPass" placeholder="Contraseña" class="w-full h-12 border border-gray-800 px-3 rounded-lg mb-4" />
+          <button class="w-full h-12 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ingresar</button>
+          <a href="#" class="text-blue-500 hover:text-blue-800 text-sm block mt-2">No eres trabajador?</a>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <div class="alianza-banner">🤝 ALIANZA Store Epic — Juntos potenciando tu servidor</div>
 
@@ -200,26 +189,26 @@
     <div class="products">
       <div class="card">
         <img src="https://i.imgur.com/oS6MpKq.jpg" alt="Sistema de Policía">
-        <h3>Sistema de Policía</h3>
-        <p>Incluye base de datos, armas, niveles y menú de cárcel.</p>
+        <h3 data-editable>Sistema de Policía</h3>
+        <p data-editable>Incluye base de datos, armas, niveles y menú de cárcel.</p>
         <button>Comprar</button>
       </div>
       <div class="card">
         <img src="https://i.imgur.com/xlhEodH.jpg" alt="Login Moderno">
-        <h3>Panel de Login</h3>
-        <p>Diseño animado, seguro y fácil de usar.</p>
+        <h3 data-editable>Panel de Login</h3>
+        <p data-editable>Diseño animado, seguro y fácil de usar.</p>
         <button>Comprar</button>
       </div>
       <div class="card">
         <img src="https://i.imgur.com/qmNDb99.png" alt="HUD estilo GTA V">
-        <h3>HUD estilo GTA V</h3>
-        <p>Velocímetro, dinero, armas y más.</p>
+        <h3 data-editable>HUD estilo GTA V</h3>
+        <p data-editable>Velocímetro, dinero, armas y más.</p>
         <button>Comprar</button>
       </div>
       <div class="card">
         <img src="image.png" alt="Resource personalizado">
-        <h3>Resource Personalizado</h3>
-        <p>Un resource exclusivo para servidores MTA, ideal para personalizar tu rol.</p>
+        <h3 data-editable>Resource Personalizado</h3>
+        <p data-editable>Un resource exclusivo para servidores MTA, ideal para personalizar tu rol.</p>
         <button>Comprar</button>
       </div>
     </div>
@@ -229,7 +218,6 @@
     © 2025 HTML ¬ Hydro. Todos los derechos reservados.
   </footer>
 
-  <!-- Modal Cursos -->
   <div id="courseModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
@@ -238,20 +226,20 @@
       <div class="courses">
         <div class="course-card">
           <img src="https://i.imgur.com/NzObwAc.png" alt="HTML Básico">
-          <h3>HTML Básico</h3>
-          <p>Aprende la estructura base del HTML y sus etiquetas.</p>
+          <h3 data-editable>HTML Básico</h3>
+          <p data-editable>Aprende la estructura base del HTML y sus etiquetas.</p>
           <button>Inscribirse</button>
         </div>
         <div class="course-card">
           <img src="https://i.imgur.com/gcLEbVk.png" alt="Responsive">
-          <h3>Diseño Responsive</h3>
-          <p>Diseña para móviles, tablets y PC desde un solo código.</p>
+          <h3 data-editable>Diseño Responsive</h3>
+          <p data-editable>Diseña para móviles, tablets y PC desde un solo código.</p>
           <button>Inscribirse</button>
         </div>
         <div class="course-card">
           <img src="https://i.imgur.com/7FlqxMN.png" alt="Avanzado">
-          <h3>Curso Avanzado</h3>
-          <p>Domina HTML, CSS y JS para crear sitios completos.</p>
+          <h3 data-editable>Curso Avanzado</h3>
+          <p data-editable>Domina HTML, CSS y JS para crear sitios completos.</p>
           <button>Inscribirse</button>
         </div>
       </div>
@@ -267,14 +255,33 @@
       document.getElementById("courseModal").style.display = "none";
     }
 
-    // Cierra el modal si se hace clic fuera del contenido
     window.onclick = function(event) {
       const modal = document.getElementById("courseModal");
       if (event.target == modal) {
         modal.style.display = "none";
       }
     }
-  </script>
 
+    function checkDesignerAccess(event) {
+      event.preventDefault();
+      const pass = document.getElementById("designerPass").value;
+      if (pass === "HtmlStore") {
+        document.getElementById("designerPanel").style.display = "none";
+        enableEditableMode();
+      } else {
+        alert("Contraseña incorrecta");
+      }
+    }
+
+    function enableEditableMode() {
+      const sections = document.querySelectorAll('[data-editable]');
+      sections.forEach(el => {
+        el.setAttribute("contenteditable", true);
+        el.style.border = "1px dashed #00e0ff";
+        el.style.padding = "5px";
+      });
+      alert("Modo diseñador activado. Puedes editar recursos y cursos directamente.");
+    }
+  </script>
 </body>
 </html>

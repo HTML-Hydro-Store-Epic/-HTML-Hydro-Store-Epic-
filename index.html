@@ -3,178 +3,221 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HTML ¬ Hydro</title>
+  <title>HTML ¬ Hydro | Tienda MTA</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #0e0e20;
+      background: #0f0f1a;
       color: #fff;
     }
 
     header {
-      background-color: #1e1e3f;
+      background: #1a1a2e;
       padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: 0 2px 8px #000;
     }
 
-    .title {
-      font-size: 1.5em;
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #00e0ff;
     }
 
-    .gear {
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      background: #00e0ff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: background 0.3s;
+      margin-left: 10px;
+    }
+
+    nav a:hover {
+      background: #00b4cc;
+    }
+
+    .tuerca {
       cursor: pointer;
-      font-size: 1.5em;
-      transition: transform 0.2s;
+      font-size: 24px;
+      color: #00e0ff;
+      margin-left: 10px;
     }
 
-    .gear:hover {
-      transform: rotate(30deg);
+    .section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
     }
 
-    .login-panel {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #222244;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-      display: none;
-      z-index: 999;
-    }
-
-    .login-panel input {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 8px;
-      border: none;
-      font-size: 1em;
-    }
-
-    .login-panel button {
-      margin-top: 15px;
-      padding: 10px;
-      width: 100%;
-      background-color: #0099ff;
-      border: none;
-      border-radius: 8px;
-      color: #fff;
-      font-size: 1em;
-      cursor: pointer;
-    }
-
-    .section-title {
-      margin: 30px 20px 10px;
-      font-size: 1.4em;
-      border-bottom: 2px solid #555;
-      padding-bottom: 5px;
-    }
-
-    .card-container {
+    .products, .courses {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      padding: 20px;
     }
 
-    .card {
-      background-color: #1b1b3a;
+    .card, .course-card {
+      background: #1c1c2c;
+      padding: 20px;
       border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      transition: transform 0.2s;
+      text-align: center;
+      box-shadow: 0 0 10px #00000055;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card img {
-      max-width: 100%;
+    .card img, .course-card img {
+      width: 100%;
       border-radius: 10px;
     }
 
-    .edit-btn {
+    .card h3, .course-card h3 {
+      color: #00e0ff;
+    }
+
+    .card p, .course-card p {
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    .card button, .course-card button {
       margin-top: 10px;
-      display: none;
-      background-color: #ff0077;
-      padding: 8px;
+      background: #00e0ff;
+      color: #000;
       border: none;
-      border-radius: 8px;
-      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
       cursor: pointer;
     }
 
-    .visible {
-      display: block !important;
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    /* Modal Login */
+    .modal-login {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content-login {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      color: #000;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .editable {
+      border: 1px dashed #00e0ff;
+      padding: 5px;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="title">HTML ¬ Hydro</div>
-    <div class="gear" onclick="openLogin()">⚙️</div>
+    <h1>HTML ¬ Hydro</h1>
+    <nav>
+      <a href="#">Inicio</a>
+      <span class="tuerca" onclick="mostrarLogin()">⚙️</span>
+    </nav>
   </header>
 
-  <!-- Login Panel -->
-  <div class="login-panel" id="loginPanel">
-    <h2>Inicio de Sesión</h2>
-    <input type="password" id="passwordInput" placeholder="Contraseña"/>
-    <button onclick="login()">Iniciar sesión</button>
-  </div>
+  <section class="section">
+    <h2 style="text-align:center;">🛍️ Resources en venta</h2>
+    <div class="products">
+      <div class="card">
+        <img src="https://i.imgur.com/oS6MpKq.jpg" alt="Sistema de Policía">
+        <h3 class="editable">Sistema de Policía</h3>
+        <p class="editable">Incluye base de datos, armas, niveles y menú de cárcel.</p>
+        <button>Comprar</button>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/xlhEodH.jpg" alt="Login Moderno">
+        <h3 class="editable">Login Moderno</h3>
+        <p class="editable">Diseño animado, seguro y fácil de usar.</p>
+        <button>Comprar</button>
+      </div>
+    </div>
+  </section>
 
-  <!-- Recursos -->
-  <h2 class="section-title">Nuestros Resources</h2>
-  <div class="card-container" id="resourcesSection">
-    <div class="card">
-      <img src="https://via.placeholder.com/300x180" alt="Resource 1">
-      <p>Resource policial avanzado</p>
-      <button class="edit-btn">Editar recurso</button>
+  <section class="section">
+    <h2 style="text-align:center;">🎓 Cursos disponibles</h2>
+    <div class="courses">
+      <div class="course-card">
+        <img src="https://i.imgur.com/NzObwAc.png" alt="HTML Básico">
+        <h3 class="editable">HTML Básico</h3>
+        <p class="editable">Aprende la estructura base del HTML y sus etiquetas.</p>
+        <button>Inscribirse</button>
+      </div>
+      <div class="course-card">
+        <img src="https://i.imgur.com/gcLEbVk.png" alt="Responsive">
+        <h3 class="editable">Diseño Responsive</h3>
+        <p class="editable">Diseña para móviles, tablets y PC desde un solo código.</p>
+        <button>Inscribirse</button>
+      </div>
     </div>
-    <div class="card">
-      <img src="https://via.placeholder.com/300x180" alt="Resource 2">
-      <p>Panel de vehículos mejorado</p>
-      <button class="edit-btn">Editar recurso</button>
-    </div>
-  </div>
+  </section>
 
-  <!-- Cursos -->
-  <h2 class="section-title">Cursos</h2>
-  <div class="card-container" id="coursesSection">
-    <div class="card">
-      <img src="https://via.placeholder.com/300x180" alt="Curso 1">
-      <p>Curso de creación de servers MTA</p>
-      <button class="edit-btn">Editar curso</button>
-    </div>
-    <div class="card">
-      <img src="https://via.placeholder.com/300x180" alt="Curso 2">
-      <p>Curso de scripts Lua básico</p>
-      <button class="edit-btn">Editar curso</button>
+  <footer>
+    © 2025 HTML ¬ Hydro. Todos los derechos reservados.
+  </footer>
+
+  <!-- Login Modal -->
+  <div id="modalLogin" class="modal-login">
+    <div class="modal-content-login">
+      <h3>Panel Trabajo</h3>
+      <input type="text" placeholder="Usuario" id="user" style="width:100%; margin:10px 0;" />
+      <input type="password" placeholder="Contraseña" id="pass" style="width:100%; margin:10px 0;" />
+      <button onclick="validarLogin()" style="width:100%;">Ingresar</button>
     </div>
   </div>
 
   <script>
-    function openLogin() {
-      document.getElementById('loginPanel').style.display = 'block';
+    function mostrarLogin() {
+      document.getElementById("modalLogin").style.display = "flex";
     }
 
-    function login() {
-      const password = document.getElementById('passwordInput').value;
-      if (password === 'HtmlStore') {
-        document.querySelectorAll('.edit-btn').forEach(btn => {
-          btn.classList.add('visible');
+    function validarLogin() {
+      const pass = document.getElementById("pass").value;
+      if (pass === "HtmlStore") {
+        document.querySelectorAll(".editable").forEach(el => {
+          el.setAttribute("contenteditable", "true");
         });
-        document.getElementById('loginPanel').style.display = 'none';
-        alert("¡Has iniciado sesión como editor!");
+        alert("¡Bienvenido diseñador! Ahora puedes editar los recursos y cursos.");
+        document.getElementById("modalLogin").style.display = "none";
       } else {
         alert("Contraseña incorrecta.");
       }
     }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("modalLogin");
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
   </script>
+
 </body>
 </html>

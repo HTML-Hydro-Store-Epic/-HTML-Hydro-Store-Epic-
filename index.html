@@ -1,121 +1,119 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HTML ¬ Hydro | Resources MTA</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML ¬ Hydro</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #0d1117;
-      color: white;
+      background-color: #0f172a;
+      color: #fff;
     }
     header {
-      background: #161b22;
+      background-color: #1e293b;
+      padding: 20px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 15px 30px;
-      border-bottom: 2px solid #30363d;
+      justify-content: space-between;
     }
-    .title {
-      font-size: 22px;
+    header .logo {
+      font-size: 24px;
       font-weight: bold;
-      color: #58a6ff;
+      color: #38bdf8;
     }
-    .discord-button {
+    .discord-btn {
       background-color: #5865F2;
       color: white;
-      padding: 10px 20px;
       border: none;
+      padding: 10px 20px;
       border-radius: 8px;
-      font-weight: bold;
       cursor: pointer;
       text-decoration: none;
     }
-    .container {
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: auto;
+    nav {
+      text-align: center;
+      margin-top: 20px;
     }
-    .section-title {
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: #58a6ff;
-      border-bottom: 2px solid #30363d;
-      padding-bottom: 5px;
+    nav button {
+      background-color: #38bdf8;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
     }
-    .product-card {
-      background: #161b22;
-      border: 1px solid #30363d;
+    .section {
+      display: none;
+      padding: 20px;
+    }
+    .section.active {
+      display: block;
+    }
+    .card {
+      background-color: #1e293b;
       border-radius: 12px;
       padding: 20px;
-      margin-bottom: 20px;
+      margin: 20px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
-    .buy-button {
-      background-color: #238636;
+    .card h3 {
+      margin-top: 0;
+    }
+    .buy-btn {
+      background-color: #10b981;
       color: white;
       padding: 10px 20px;
       border: none;
       border-radius: 8px;
-      font-weight: bold;
       cursor: pointer;
+      margin-top: 10px;
       text-decoration: none;
-    }
-    .course-link {
-      color: #58a6ff;
-      font-weight: bold;
-      cursor: pointer;
-      text-decoration: underline;
+      display: inline-block;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <div class="title">ALIANZA Store Epic</div>
-    <a class="discord-button" href="https://discord.gg/x6hQKKjA" target="_blank">Unirse al Discord</a>
+    <div class="logo">ALIANZA Store Epic</div>
+    <a class="discord-btn" href="https://discord.gg/x6hQKKjA" target="_blank">Unirse al Discord</a>
   </header>
 
-  <div class="container">
-    <h2 class="section-title">Tienda de Resources para MTA</h2>
+  <nav>
+    <button onclick="mostrarSeccion('compras')">Compras</button>
+    <button onclick="mostrarSeccion('cursos')">Cursos</button>
+  </nav>
 
-    <div class="product-card">
-      <h3>Resource HUD estilo GTA V</h3>
-      <p>HUD profesional con interfaz GTA V, compatible con MTA San Andreas (Downtown).</p>
-      <a class="buy-button" href="https://discord.com/channels/1300963645047705621/1300987698844008491" target="_blank">Comprar / Abrir Ticket</a>
+  <section id="compras" class="section active">
+    <div class="card">
+      <h3>Resource #1</h3>
+      <p>Descripción corta del resource para MTA.</p>
+      <a class="buy-btn" href="https://discord.com/channels/1300963645047705621/1300987698844008491" target="_blank">Comprar</a>
     </div>
-
-    <div class="product-card">
-      <h3>Login estilo Rockstar Games</h3>
-      <p>Sistema de login avanzado con efectos y animaciones tipo Rockstar Launcher.</p>
-      <a class="buy-button" href="https://discord.com/channels/1300963645047705621/1300987698844008491" target="_blank">Comprar / Abrir Ticket</a>
+    <div class="card">
+      <h3>Resource #2</h3>
+      <p>Otro resource profesional para tu servidor.</p>
+      <a class="buy-btn" href="https://discord.com/channels/1300963645047705621/1300987698844008491" target="_blank">Comprar</a>
     </div>
+  </section>
 
-    <div class="product-card">
-      <h3>Panel de Administración</h3>
-      <p>Admin panel completo para gestionar el servidor, permisos y jugadores en tiempo real.</p>
-      <a class="buy-button" href="https://discord.com/channels/1300963645047705621/1300987698844008491" target="_blank">Comprar / Abrir Ticket</a>
+  <section id="cursos" class="section">
+    <div class="card">
+      <h3>Curso de Creación de Páginas Web en HTML</h3>
+      <p>Aprende desde cero cómo crear páginas web modernas y profesionales usando solo HTML y CSS.</p>
+      <a class="buy-btn" href="https://discord.com/channels/1300963645047705621/1300987698844008491" target="_blank">Inscribirme</a>
     </div>
-
-    <h2 class="section-title">Cursos Profesionales</h2>
-    <p>Accede a nuestro curso exclusivo de <span class="course-link" onclick="mostrarCursos()">Creación Profesional de Páginas HTML</span>.</p>
-
-    <div id="cursos" style="display:none; margin-top:20px;">
-      <div class="product-card">
-        <h3>Curso: Dominando HTML desde cero</h3>
-        <p>Aprende a crear páginas web modernas con HTML, CSS y diseño responsive. Incluye plantillas de ejemplo.</p>
-        <a class="buy-button" href="https://discord.com/channels/1300963645047705621/1300987698844008491" target="_blank">Inscribirse</a>
-      </div>
-    </div>
-  </div>
+  </section>
 
   <script>
-    function mostrarCursos() {
-      document.getElementById("cursos").style.display = "block";
+    function mostrarSeccion(id) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
     }
   </script>
-
 </body>
 </html>

@@ -27,18 +27,25 @@
       color: #00e0ff;
     }
 
-    nav a {
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    nav a, nav button {
       color: white;
       text-decoration: none;
       font-weight: bold;
       background: #00e0ff;
       padding: 8px 16px;
       border-radius: 20px;
+      border: none;
+      cursor: pointer;
       transition: background 0.3s;
-      margin-left: 10px;
     }
 
-    nav a:hover {
+    nav a:hover, nav button:hover {
       background: #00b4cc;
     }
 
@@ -46,7 +53,6 @@
       cursor: pointer;
       font-size: 24px;
       color: #00e0ff;
-      margin-left: 10px;
     }
 
     .section {
@@ -55,13 +61,13 @@
       margin: auto;
     }
 
-    .products, .courses {
+    .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
 
-    .card, .course-card {
+    .card {
       background: #1c1c2c;
       padding: 20px;
       border-radius: 15px;
@@ -69,21 +75,21 @@
       box-shadow: 0 0 10px #00000055;
     }
 
-    .card img, .course-card img {
+    .card img {
       width: 100%;
       border-radius: 10px;
     }
 
-    .card h3, .course-card h3 {
+    .card h3 {
       color: #00e0ff;
     }
 
-    .card p, .course-card p {
+    .card p {
       color: #ccc;
       font-size: 14px;
     }
 
-    .card button, .course-card button {
+    .card button {
       margin-top: 10px;
       background: #00e0ff;
       color: #000;
@@ -101,8 +107,7 @@
       color: #777;
     }
 
-    /* Modal Login */
-    .modal-login {
+    .modal-login, .modal-cursos {
       display: none;
       position: fixed;
       z-index: 9999;
@@ -115,16 +120,64 @@
       align-items: center;
     }
 
-    .modal-content-login {
+    .modal-content-login, .modal-content-cursos {
       background: white;
       padding: 30px;
       border-radius: 10px;
-      width: 300px;
+      width: 90%;
+      max-width: 800px;
       color: #000;
+      max-height: 90vh;
+      overflow-y: auto;
     }
 
-    .hidden {
-      display: none;
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .course-card {
+      background: #1c1c2c;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 10px #00000055;
+      color: #fff;
+    }
+
+    .course-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .course-card h3 {
+      color: #00e0ff;
+    }
+
+    .course-card p {
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    .course-card button {
+      margin-top: 10px;
+      background: #00e0ff;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    .close-btn {
+      background: red;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 10px;
+      float: right;
+      cursor: pointer;
     }
 
     .editable {
@@ -138,7 +191,7 @@
   <header>
     <h1>HTML ¬ Hydro</h1>
     <nav>
-      <a href="#">Inicio</a>
+      <button onclick="mostrarCursos()">🎓 Ver Cursos</button>
       <span class="tuerca" onclick="mostrarLogin()">⚙️</span>
     </nav>
   </header>
@@ -161,35 +214,39 @@
     </div>
   </section>
 
-  <section class="section">
-    <h2 style="text-align:center;">🎓 Cursos disponibles</h2>
-    <div class="courses">
-      <div class="course-card">
-        <img src="https://i.imgur.com/NzObwAc.png" alt="HTML Básico">
-        <h3 class="editable">HTML Básico</h3>
-        <p class="editable">Aprende la estructura base del HTML y sus etiquetas.</p>
-        <button>Inscribirse</button>
-      </div>
-      <div class="course-card">
-        <img src="https://i.imgur.com/gcLEbVk.png" alt="Responsive">
-        <h3 class="editable">Diseño Responsive</h3>
-        <p class="editable">Diseña para móviles, tablets y PC desde un solo código.</p>
-        <button>Inscribirse</button>
-      </div>
-    </div>
-  </section>
-
   <footer>
     © 2025 HTML ¬ Hydro. Todos los derechos reservados.
   </footer>
 
-  <!-- Login Modal -->
+  <!-- Modal Login -->
   <div id="modalLogin" class="modal-login">
     <div class="modal-content-login">
       <h3>Panel Trabajo</h3>
       <input type="text" placeholder="Usuario" id="user" style="width:100%; margin:10px 0;" />
       <input type="password" placeholder="Contraseña" id="pass" style="width:100%; margin:10px 0;" />
       <button onclick="validarLogin()" style="width:100%;">Ingresar</button>
+    </div>
+  </div>
+
+  <!-- Modal Cursos -->
+  <div id="modalCursos" class="modal-cursos">
+    <div class="modal-content-cursos">
+      <button class="close-btn" onclick="cerrarCursos()">Cerrar</button>
+      <h2 style="text-align:center;">🎓 Cursos disponibles</h2>
+      <div class="courses">
+        <div class="course-card">
+          <img src="https://i.imgur.com/NzObwAc.png" alt="HTML Básico">
+          <h3 class="editable">HTML Básico</h3>
+          <p class="editable">Aprende la estructura base del HTML y sus etiquetas.</p>
+          <button>Inscribirse</button>
+        </div>
+        <div class="course-card">
+          <img src="https://i.imgur.com/gcLEbVk.png" alt="Responsive">
+          <h3 class="editable">Diseño Responsive</h3>
+          <p class="editable">Diseña para móviles, tablets y PC desde un solo código.</p>
+          <button>Inscribirse</button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -211,10 +268,20 @@
       }
     }
 
+    function mostrarCursos() {
+      document.getElementById("modalCursos").style.display = "flex";
+    }
+
+    function cerrarCursos() {
+      document.getElementById("modalCursos").style.display = "none";
+    }
+
     window.onclick = function(event) {
-      const modal = document.getElementById("modalLogin");
-      if (event.target == modal) {
-        modal.style.display = "none";
+      if (event.target === document.getElementById("modalLogin")) {
+        document.getElementById("modalLogin").style.display = "none";
+      }
+      if (event.target === document.getElementById("modalCursos")) {
+        document.getElementById("modalCursos").style.display = "none";
       }
     }
   </script>

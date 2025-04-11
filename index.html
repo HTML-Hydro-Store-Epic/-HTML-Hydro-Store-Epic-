@@ -192,6 +192,7 @@
     <nav>
       <a href="https://discord.gg/x6hQKKjA" target="_blank">Unirse al Discord</a>
       <a href="#" onclick="openModal()">Cursos</a>
+      <a href="#" onclick="openRegisterModal()">Registrarme</a>
     </nav>
   </header>
 
@@ -258,6 +259,21 @@
     </div>
   </div>
 
+  <!-- Modal Registro -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeRegisterModal()">&times;</span>
+      <h2 style="color:#00e0ff; text-align:center;">📝 Registro de Usuario</h2>
+      <p style="text-align:center;">Completa tus datos para registrarte en HTML ¬ Hydro.</p>
+      <form style="display:flex; flex-direction:column; gap:15px; max-width:500px; margin:20px auto;">
+        <input type="text" placeholder="Nombre completo" style="padding:10px; border-radius:8px; border:none; background:#2a2a3d; color:white;">
+        <input type="email" placeholder="Correo electrónico" style="padding:10px; border-radius:8px; border:none; background:#2a2a3d; color:white;">
+        <input type="password" placeholder="Contraseña" style="padding:10px; border-radius:8px; border:none; background:#2a2a3d; color:white;">
+        <button type="submit" style="padding:12px; background:#00e0ff; color:black; border:none; border-radius:25px; font-weight:bold; cursor:pointer;">Registrarme</button>
+      </form>
+    </div>
+  </div>
+
   <script>
     function openModal() {
       document.getElementById("courseModal").style.display = "block";
@@ -267,11 +283,20 @@
       document.getElementById("courseModal").style.display = "none";
     }
 
-    // Cierra el modal si se hace clic fuera del contenido
+    function openRegisterModal() {
+      document.getElementById("registerModal").style.display = "block";
+    }
+
+    function closeRegisterModal() {
+      document.getElementById("registerModal").style.display = "none";
+    }
+
     window.onclick = function(event) {
-      const modal = document.getElementById("courseModal");
-      if (event.target == modal) {
-        modal.style.display = "none";
+      if (event.target == document.getElementById("courseModal")) {
+        closeModal();
+      }
+      if (event.target == document.getElementById("registerModal")) {
+        closeRegisterModal();
       }
     }
   </script>

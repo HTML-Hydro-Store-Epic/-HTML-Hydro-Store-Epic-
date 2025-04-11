@@ -181,8 +181,25 @@
     }
 
     .editable {
-      border: 1px dashed #00e0ff;
-      padding: 5px;
+      outline: none;
+    }
+
+    .discord-btn {
+      margin: 20px auto 0;
+      display: block;
+      background-color: #5865F2;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.3s;
+    }
+
+    .discord-btn:hover {
+      background-color: #4752c4;
     }
   </style>
 </head>
@@ -247,6 +264,8 @@
           <button>Inscribirse</button>
         </div>
       </div>
+      <!-- Botón de inicio con Discord -->
+      <button class="discord-btn" onclick="iniciarConDiscord()">Iniciar con Discord</button>
     </div>
   </div>
 
@@ -274,6 +293,11 @@
 
     function cerrarCursos() {
       document.getElementById("modalCursos").style.display = "none";
+    }
+
+    function iniciarConDiscord() {
+      // Reemplaza esta URL con la de tu bot o sistema OAuth de Discord si lo configuras
+      window.open("https://discord.com/oauth2/authorize?client_id=TU_CLIENT_ID&redirect_uri=TU_REDIRECT_URI&response_type=code&scope=identify", "_blank");
     }
 
     window.onclick = function(event) {

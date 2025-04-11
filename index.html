@@ -57,6 +57,12 @@
       background: #00b4cc;
     }
 
+    .tuerca {
+      font-size: 28px;
+      cursor: pointer;
+      color: #00e0ff;
+    }
+
     .section {
       padding: 40px 20px;
       max-width: 1200px;
@@ -143,36 +149,35 @@
       color: #ff5f5f;
     }
 
-    #designerPanel {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background: linear-gradient(to right, #f87171, #ec4899, #ef4444);
+    #login-panel {
+      display: none;
+    }
+
+    .editor {
+      display: none;
+      background: #1a1a2e;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 10px;
+    }
+
+    /* Estilo tuerca */
+    .gear-btn {
       position: fixed;
-      z-index: 99999;
-      width: 100%;
-      top: 0;
-      left: 0;
+      bottom: 20px;
+      right: 20px;
+      background: #00e0ff;
+      color: #000;
+      font-size: 24px;
+      padding: 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00e0ff80;
+      z-index: 999;
     }
   </style>
 </head>
 <body>
-
-  <div id="designerPanel">
-    <div class="relative">
-      <div class="absolute -top-2 -left-2 -right-2 -bottom-2 rounded-lg bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow-lg animate-pulse"></div>
-      <div class="bg-white p-16 rounded-lg shadow-2xl w-80 relative z-10">
-        <h2 class="text-center text-3xl font-bold mb-10 text-gray-800">Panel Trabajo</h2>
-        <form onsubmit="return checkDesignerAccess(event)">
-          <input type="text" placeholder="Usuario" class="w-full h-12 border border-gray-800 px-3 rounded-lg mb-4" />
-          <input type="password" id="designerPass" placeholder="Contraseña" class="w-full h-12 border border-gray-800 px-3 rounded-lg mb-4" />
-          <button class="w-full h-12 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ingresar</button>
-          <a href="#" class="text-blue-500 hover:text-blue-800 text-sm block mt-2">No eres trabajador?</a>
-        </form>
-      </div>
-    </div>
-  </div>
 
   <div class="alianza-banner">🤝 ALIANZA Store Epic — Juntos potenciando tu servidor</div>
 
@@ -186,65 +191,71 @@
 
   <section class="section">
     <h2 style="text-align:center;">🛒 Catálogo de Resources</h2>
-    <div class="products">
+    <div class="products" id="resource-container">
       <div class="card">
         <img src="https://i.imgur.com/oS6MpKq.jpg" alt="Sistema de Policía">
-        <h3 data-editable>Sistema de Policía</h3>
-        <p data-editable>Incluye base de datos, armas, niveles y menú de cárcel.</p>
+        <h3>Sistema de Policía</h3>
+        <p>Incluye base de datos, armas, niveles y menú de cárcel.</p>
         <button>Comprar</button>
       </div>
-      <div class="card">
-        <img src="https://i.imgur.com/xlhEodH.jpg" alt="Login Moderno">
-        <h3 data-editable>Panel de Login</h3>
-        <p data-editable>Diseño animado, seguro y fácil de usar.</p>
-        <button>Comprar</button>
-      </div>
-      <div class="card">
-        <img src="https://i.imgur.com/qmNDb99.png" alt="HUD estilo GTA V">
-        <h3 data-editable>HUD estilo GTA V</h3>
-        <p data-editable>Velocímetro, dinero, armas y más.</p>
-        <button>Comprar</button>
-      </div>
-      <div class="card">
-        <img src="image.png" alt="Resource personalizado">
-        <h3 data-editable>Resource Personalizado</h3>
-        <p data-editable>Un resource exclusivo para servidores MTA, ideal para personalizar tu rol.</p>
-        <button>Comprar</button>
-      </div>
+      <!-- Más cards... -->
     </div>
   </section>
+
+  <div id="editor" class="editor">
+    <h3>Editar Resources y Cursos</h3>
+    <p>Aquí podrás modificar el contenido (falta programar ediciones específicas).</p>
+  </div>
 
   <footer>
     © 2025 HTML ¬ Hydro. Todos los derechos reservados.
   </footer>
 
+  <!-- Modal Cursos -->
   <div id="courseModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
       <h2 style="color:#00e0ff; text-align:center;">🎓 Cursos Profesionales en HTML</h2>
-      <p style="text-align:center;">Aprende a crear sitios web con diseño moderno para servidores MTA u otros proyectos.</p>
       <div class="courses">
         <div class="course-card">
           <img src="https://i.imgur.com/NzObwAc.png" alt="HTML Básico">
-          <h3 data-editable>HTML Básico</h3>
-          <p data-editable>Aprende la estructura base del HTML y sus etiquetas.</p>
-          <button>Inscribirse</button>
-        </div>
-        <div class="course-card">
-          <img src="https://i.imgur.com/gcLEbVk.png" alt="Responsive">
-          <h3 data-editable>Diseño Responsive</h3>
-          <p data-editable>Diseña para móviles, tablets y PC desde un solo código.</p>
-          <button>Inscribirse</button>
-        </div>
-        <div class="course-card">
-          <img src="https://i.imgur.com/7FlqxMN.png" alt="Avanzado">
-          <h3 data-editable>Curso Avanzado</h3>
-          <p data-editable>Domina HTML, CSS y JS para crear sitios completos.</p>
+          <h3>HTML Básico</h3>
+          <p>Aprende la estructura base del HTML y sus etiquetas.</p>
           <button>Inscribirse</button>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Panel de login oculto -->
+  <div id="login-panel">
+    <div
+      class="h-96 flex items-center justify-center bg-gradient-to-r from-red-400 via-pink-500 to-red-500"
+    >
+      <div class="relative">
+        <div
+          class="absolute -top-2 -left-2 -right-2 -bottom-2 rounded-lg bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow-lg animate-pulse"
+        ></div>
+        <div
+          class="bg-white p-16 rounded-lg shadow-2xl w-80 relative z-10"
+        >
+          <h2 class="text-center text-3xl font-bold mb-10 text-gray-800">Panel Trabajo</h2>
+          <form onsubmit="return checkLogin(event)">
+            <input type="text" placeholder="Usuario" required class="w-full h-12 border border-gray-800 px-3 rounded-lg mb-3" />
+            <input type="password" id="login-pass" placeholder="Contraseña" required class="w-full h-12 border border-gray-800 px-3 rounded-lg mb-3" />
+            <button
+              type="submit"
+              class="w-full h-12 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >Ingresar</button>
+            <a href="#" class="text-blue-500 hover:text-blue-800 text-sm">No eres trabajador?</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón de la tuerca -->
+  <div class="gear-btn" onclick="toggleLogin()">⚙️</div>
 
   <script>
     function openModal() {
@@ -257,31 +268,26 @@
 
     window.onclick = function(event) {
       const modal = document.getElementById("courseModal");
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
+      if (event.target == modal) modal.style.display = "none";
     }
 
-    function checkDesignerAccess(event) {
-      event.preventDefault();
-      const pass = document.getElementById("designerPass").value;
+    function toggleLogin() {
+      const panel = document.getElementById("login-panel");
+      panel.style.display = panel.style.display === "block" ? "none" : "block";
+    }
+
+    function checkLogin(e) {
+      e.preventDefault();
+      const pass = document.getElementById("login-pass").value;
       if (pass === "HtmlStore") {
-        document.getElementById("designerPanel").style.display = "none";
-        enableEditableMode();
+        document.getElementById("editor").style.display = "block";
+        document.getElementById("login-panel").style.display = "none";
+        alert("Bienvenido diseñador");
       } else {
         alert("Contraseña incorrecta");
       }
     }
-
-    function enableEditableMode() {
-      const sections = document.querySelectorAll('[data-editable]');
-      sections.forEach(el => {
-        el.setAttribute("contenteditable", true);
-        el.style.border = "1px dashed #00e0ff";
-        el.style.padding = "5px";
-      });
-      alert("Modo diseñador activado. Puedes editar recursos y cursos directamente.");
-    }
   </script>
+
 </body>
 </html>

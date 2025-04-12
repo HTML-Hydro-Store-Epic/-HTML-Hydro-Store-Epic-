@@ -12,6 +12,14 @@
       color: #fff;
     }
 
+    .notificacion {
+      background: #28a745;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+
     header {
       background: #1a1a2e;
       padding: 20px;
@@ -205,6 +213,10 @@
 </head>
 <body>
 
+  <div class="notificacion">
+    ✅ Bienvenido a HTML ¬ Hydro. Esta es una versión de prueba.
+  </div>
+
   <header>
     <h1>HTML ¬ Hydro</h1>
     <nav>
@@ -264,7 +276,6 @@
           <button>Inscribirse</button>
         </div>
       </div>
-      <!-- Botón de inicio con Discord -->
       <button class="discord-btn" onclick="iniciarConDiscord()">Iniciar con Discord</button>
     </div>
   </div>
@@ -296,7 +307,6 @@
     }
 
     function iniciarConDiscord() {
-      // Reemplaza esta URL con la de tu bot o sistema OAuth de Discord si lo configuras
       window.open("https://discord.com/oauth2/authorize?client_id=TU_CLIENT_ID&redirect_uri=TU_REDIRECT_URI&response_type=code&scope=identify", "_blank");
     }
 

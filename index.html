@@ -120,6 +120,28 @@
       padding: 12px;
       border-bottom: 1px solid #0f0;
     }
+
+    /* SECCIÓN NUEVA CON IMAGEN DE FONDO */
+    .imagen-fondo {
+      background-image: url('image.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: black;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contenido-fondo {
+      text-align: center;
+      color: #0f0;
+      text-shadow: 0 0 10px #0f0;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
@@ -214,6 +236,14 @@
       <h3>¿Te interesa un paquete personalizado?</h3>
     </div>
   </div>
+
+  <!-- NUEVA SECCIÓN CON FONDO DE IMAGEN -->
+  <section class="imagen-fondo">
+    <div class="contenido-fondo">
+      <h2>Potencia tu servidor con estilo</h2>
+      <p>Explora nuestros recursos premium, cursos detallados y el mejor soporte.</p>
+    </div>
+  </section>
 
   <div id="modal" class="modal" onclick="closeImage()">
     <img id="modalImage" src="" alt="Vista previa">

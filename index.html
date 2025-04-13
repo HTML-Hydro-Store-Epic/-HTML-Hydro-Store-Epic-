@@ -1,92 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Store Epic HTML Hydro</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #0a0a0a;
-      color: #ffffff;
-    }
-
-    #lockscreen {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.95);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      text-align: center;
-      padding: 20px;
-    }
-
-    #lockscreen h1 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: #00bfff;
-    }
-
-    #lockscreen p {
-      margin-bottom: 20px;
-      font-size: 18px;
-    }
-
-    #lockscreen input {
-      padding: 10px;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
-
-    #lockscreen button {
-      padding: 10px 20px;
-      background-color: #00bfff;
-      border: none;
-      border-radius: 8px;
-      color: #fff;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    #main-content {
-      display: none;
-      padding: 20px;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>HTML ¬ Hydro Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div id="lockscreen">
-    <h1>PÁGINA Store Epic HTML Hydro en actualización</h1>
-    <p>Más información en Discord</p>
-    <input type="password" id="password" placeholder="Contraseña para entrar" />
-    <button onclick="checkPassword()">Entrar</button>
-    <p id="error" style="color:red; display:none;">Contraseña incorrecta</p>
-  </div>
+<body class="bg-gray-900 text-white font-sans">
 
-  <div id="main-content">
-    <!-- AQUÍ VA TODO TU CÓDIGO ACTUAL DE LA WEB -->
-    <h2>Bienvenido a Store Epic HTML Hydro</h2>
-    <p>Contenido de la tienda...</p>
-    <!-- Puedes pegar aquí tu código anterior -->
-  </div>
+  <!-- HEADER -->
+  <header class="bg-gray-800 p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">HTML ¬ Hydro Store</h1>
+    <nav class="space-x-2">
+      <button onclick="mostrarSeccion('inicio')" class="bg-blue-600 px-3 py-1 rounded hover:bg-blue-700">Inicio</button>
+      <button onclick="mostrarSeccion('resources')" class="bg-blue-600 px-3 py-1 rounded hover:bg-blue-700">Resources MTA</button>
+      <button onclick="mostrarSeccion('cursos')" class="bg-blue-600 px-3 py-1 rounded hover:bg-blue-700">Cursos</button>
+      <button onclick="mostrarSeccion('hosting')" class="bg-blue-600 px-3 py-1 rounded hover:bg-blue-700">Hosting MTA</button>
+    </nav>
+  </header>
 
+  <!-- SECCIONES -->
+  <main class="p-6">
+
+    <!-- INICIO -->
+    <section id="inicio" class="hidden">
+      <h2 class="text-2xl font-bold mb-2">Bienvenido a HTML ¬ Hydro Store</h2>
+      <p>Aquí encontrarás resources, cursos y hostings para tu servidor MTA.</p>
+    </section>
+
+    <!-- RESOURCES -->
+    <section id="resources" class="hidden">
+      <h2 class="text-2xl font-bold mb-2">Resources MTA</h2>
+      <p>Explora nuestra selección de resources listos para usar o editar en tu servidor.</p>
+    </section>
+
+    <!-- CURSOS -->
+    <section id="cursos" class="hidden">
+      <h2 class="text-2xl font-bold mb-2">Cursos</h2>
+      <p>Aprende a desarrollar resources, mapas y sistemas para MTA desde cero.</p>
+    </section>
+
+    <!-- HOSTING -->
+    <section id="hosting" class="hidden">
+      <h2 class="text-2xl font-bold mb-2">Hosting MTA</h2>
+      <p>Conoce nuestros planes de host para que tu servidor funcione 24/7 con calidad.</p>
+    </section>
+
+  </main>
+
+  <!-- SCRIPT PARA CAMBIAR DE SECCIÓN -->
   <script>
-    function checkPassword() {
-      const input = document.getElementById("password").value;
-      if (input === "StoreEpic123") {
-        document.getElementById("lockscreen").style.display = "none";
-        document.getElementById("main-content").style.display = "block";
-      } else {
-        document.getElementById("error").style.display = "block";
-      }
+    function mostrarSeccion(id) {
+      const secciones = ['inicio', 'resources', 'cursos', 'hosting'];
+      secciones.forEach(seccion => {
+        document.getElementById(seccion).classList.add('hidden');
+      });
+      document.getElementById(id).classList.remove('hidden');
     }
   </script>
+
 </body>
 </html>

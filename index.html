@@ -7,119 +7,131 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #001f3f;
-      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      background: #001f3f;
+      color: #fff;
     }
 
     header {
-      background-color: #001837;
-      padding: 20px;
       text-align: center;
-      box-shadow: 0 0 15px #00f0ff;
+      padding: 30px 0;
+      font-size: 2.5em;
+      animation: neonText 2s infinite alternate;
+      color: white;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      color: #00f0ff;
+    @keyframes neonText {
+      from { text-shadow: 0 0 10px #00f; }
+      to { text-shadow: 0 0 25px #00f, 0 0 40px #00f; }
     }
 
     nav {
       display: flex;
       justify-content: center;
-      background-color: #001a33;
-      padding: 10px;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 30px;
     }
 
     nav button {
-      background-color: transparent;
-      border: 2px solid #00f0ff;
-      color: #00f0ff;
+      background: none;
+      border: 2px solid #fff;
+      color: #fff;
       padding: 10px 20px;
-      margin: 0 10px;
-      font-size: 1rem;
-      border-radius: 5px;
+      font-size: 1em;
       cursor: pointer;
       transition: 0.3s;
     }
 
     nav button:hover {
-      background-color: #00f0ff;
-      color: #001a33;
+      background: #fff;
+      color: #001f3f;
     }
 
     .section {
       display: none;
-      padding: 30px;
-      animation: fadeIn 0.5s ease-in-out;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 20px;
     }
 
-    .section.active {
-      display: block;
+    .active {
+      display: flex;
     }
 
     .card {
-      background-color: #00264d;
-      border-radius: 10px;
+      background: #002b5c;
+      border: 2px solid #00f;
       padding: 20px;
-      margin: 20px 0;
-      box-shadow: 0 0 10px #00f0ff40;
-    }
-
-    .card h3 {
-      margin-top: 0;
-      color: #00f0ff;
-    }
-
-    .card button {
-      background-color: #00f0ff;
-      color: #001a33;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-      margin: 10px 5px 0 0;
-    }
-
-    .card button:hover {
-      background-color: #00c0ff;
+      width: 90%;
+      max-width: 1200px;
+      text-align: center;
+      box-shadow: 0 0 20px #00f;
+      border-radius: 10px;
     }
 
     .resource-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
     }
 
     .resource-item {
-      background-color: #002a54;
-      border-radius: 10px;
-      padding: 20px;
-      flex: 1 1 calc(33.33% - 40px);
-      min-width: 250px;
-      box-shadow: 0 0 10px #00f0ff60;
+      background: #003366;
+      border: 1px solid #00f;
+      padding: 15px;
+      width: 260px;
+      border-radius: 8px;
     }
 
     .resource-item h4 {
-      color: #00f0ff;
       margin-top: 0;
+      color: #fff;
     }
 
     .resource-item p {
-      font-size: 0.9rem;
+      color: #ddd;
+      font-size: 0.95em;
     }
 
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
+    .resource-item button {
+      margin: 5px;
+      padding: 8px 14px;
+      border: none;
+      background: #fff;
+      color: #001f3f;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .resource-item button:hover {
+      background: #00f;
+      color: #fff;
+    }
+
+    .faq {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .faq h2 {
+      margin-bottom: 20px;
+    }
+
+    .faq h3 {
+      padding: 12px;
+      border-bottom: 1px solid #fff;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>STORE EPIC ¬ HTML Hydro</h1>
-  </header>
+
+  <header>STORE EPIC ¬ HTML Hydro</header>
 
   <nav>
     <button onclick="showSection('inicio')">Inicio</button>
@@ -130,22 +142,12 @@
   </nav>
 
   <div id="inicio" class="section active">
-    <div class="card">
-      <h3>Bienvenido a STORE EPIC ¬ HTML Hydro</h3>
+    <div class="faq">
+      <h2>Bienvenido a STORE EPIC</h2>
       <p>
-        STORE EPIC nació como una idea entre amigos apasionados por el desarrollo de servidores en MTA San Andreas. Nos dimos cuenta de que muchos servidores tenían potencial, pero carecían de buenos resources, scripts optimizados o ayuda técnica para despegar. Entonces dijimos: ¿y si creamos un espacio donde cualquier persona pueda encontrar lo necesario para construir el servidor de sus sueños?
-      </p>
-      <p>
-        Así nació este proyecto, con el objetivo de brindarte todo lo que necesitas: desde resources únicos, gratuitos y premium, hasta cursos completos donde enseñamos cómo crear tus propios scripts, montar páginas web profesionales y manejar tu propio host. No importa si estás empezando o si ya tienes experiencia: aquí siempre vas a encontrar algo nuevo, útil y potente.
-      </p>
-      <p>
-        Además, nos enorgullece ofrecer servicios de <strong>Hosting MTA</strong> con alto rendimiento, estables 24/7 y con soporte personalizado. Porque no solo vendemos scripts: también te acompañamos en cada paso. ¿Tienes problemas con una GM? ¿No sabes cómo conectar una base de datos? ¿Quieres integrar login web o hacer una tienda online para tu servidor? ¡Estamos aquí para ayudarte!
-      </p>
-      <p>
-        Nuestra comunidad está en constante crecimiento y cada semana subimos nuevos resources, añadimos actualizaciones y mejoramos nuestros servicios gracias a los comentarios de ustedes. Este sitio no es solo una tienda: es un punto de encuentro para todos los que quieren llevar su servidor al siguiente nivel.
-      </p>
-      <p>
-        Gracias por visitarnos. Revisa nuestras secciones, visualiza los recursos, y si necesitas ayuda, contáctanos por Discord. En STORE EPIC no solo vendemos cosas: <strong>te enseñamos, te ayudamos y te motivamos a crear</strong>. 💻🚀
+        STORE EPIC nació con el objetivo de apoyar a todos los desarrolladores y dueños de servidores de MTA San Andreas en su camino hacia un proyecto exitoso. Empezamos como un pequeño grupo de entusiastas de los scripts y hoy ofrecemos una gran variedad de resources, cursos y servicios profesionales para la comunidad. <br><br>
+        Aquí encontrarás desde resources listos para usar, hasta cursos completos donde te enseñamos a crear tus propios sistemas y páginas web desde cero. También brindamos servicios de hosting optimizados para MTA, soporte personalizado y un equipo siempre dispuesto a ayudarte. <br><br>
+        Nuestra visión es brindar herramientas accesibles, funcionales y modernas para que cualquier servidor —sea grande o pequeño— pueda alcanzar su máximo potencial. STORE EPIC no es solo una tienda: es una comunidad, una guía, y un aliado para tu crecimiento.
       </p>
     </div>
   </div>
@@ -161,14 +163,26 @@
           <button>Ver información</button>
         </div>
         <div class="resource-item">
-          <h4>Sistema de Economía Avanzado</h4>
-          <p>Incluye bancos, billeteras, cajeros y compatibilidad con tiendas.</p>
+          <h4>Sistema de Economía</h4>
+          <p>Bancos, billeteras, cajeros y compatibilidad con tiendas.</p>
           <button>Comprar</button>
           <button>Ver información</button>
         </div>
         <div class="resource-item">
           <h4>GM Roleplay</h4>
-          <p>Completa, personalizable, con sistema de facciones y roles legales/ilegales.</p>
+          <p>GM completa, con sistema de facciones, legales e ilegales.</p>
+          <button>Comprar</button>
+          <button>Ver información</button>
+        </div>
+        <div class="resource-item">
+          <h4>Panel de Administración</h4>
+          <p>Controla todo tu servidor desde un panel central.</p>
+          <button>Comprar</button>
+          <button>Ver información</button>
+        </div>
+        <div class="resource-item">
+          <h4>Animaciones Custom</h4>
+          <p>Paquete de animaciones realistas para interacción de usuarios.</p>
           <button>Comprar</button>
           <button>Ver información</button>
         </div>
@@ -178,45 +192,73 @@
 
   <div id="cursos" class="section">
     <div class="card">
-      <h3>Curso HTML para MTA</h3>
-      <p>Aprende a diseñar interfaces modernas para tu servidor.</p>
-      <button>Ver curso</button>
-    </div>
-    <div class="card">
-      <h3>Curso de creación de scripts</h3>
-      <p>Desde básico hasta avanzado: crea tus propios resources.</p>
-      <button>Ver curso</button>
-    </div>
-    <div class="card">
-      <h3>Curso: Crear tu propia web</h3>
-      <p>Aprende a crear y subir páginas como esta.</p>
-      <button>Ver curso</button>
+      <h3>Cursos disponibles</h3>
+      <div class="resource-grid">
+        <div class="resource-item">
+          <h4>Curso HTML</h4>
+          <p>Aprende desde cero a crear páginas web modernas.</p>
+          <button>Comprar</button>
+          <button>Ver información</button>
+        </div>
+        <div class="resource-item">
+          <h4>Script en MTA</h4>
+          <p>Curso completo para crear y editar scripts LUA.</p>
+          <button>Comprar</button>
+          <button>Ver información</button>
+        </div>
+        <div class="resource-item">
+          <h4>Crear Webs</h4>
+          <p>Desde landing pages hasta conexiones con bases de datos.</p>
+          <button>Comprar</button>
+          <button>Ver información</button>
+        </div>
+      </div>
     </div>
   </div>
 
   <div id="hosting" class="section">
     <div class="card">
-      <h3>Planes de Hosting MTA</h3>
-      <p>Disponibles 24/7 con soporte incluido y panel fácil de usar.</p>
-      <button>Ver planes</button>
+      <h3>Hosting MTA</h3>
+      <div class="resource-grid">
+        <div class="resource-item">
+          <h4>Hosting Básico</h4>
+          <p>Host 24/7 económico para servidores pequeños.</p>
+          <button>Comprar</button>
+          <button>Ver información</button>
+        </div>
+        <div class="resource-item">
+          <h4>Hosting Avanzado</h4>
+          <p>Soporte para gamemodes grandes con alto tráfico.</p>
+          <button>Comprar</button>
+          <button>Ver información</button>
+        </div>
+        <div class="resource-item">
+          <h4>Hosting Full Pack</h4>
+          <p>Incluye instalación de GM, recursos y panel de control.</p>
+          <button>Comprar</button>
+          <button>Ver información</button>
+        </div>
+      </div>
     </div>
   </div>
 
   <div id="soporte" class="section">
-    <div class="card">
-      <h3>Soporte 24/7</h3>
-      <p>¿Tienes dudas o problemas técnicos? ¡Contáctanos por Discord en cualquier momento!</p>
-      <button>Solicitar ayuda</button>
+    <div class="faq">
+      <h2>Contactarme con soporte</h2>
+      <h3>¿Necesitas agregar una GM Downtown a tu host?</h3>
+      <h3>¿Problemas con scripts que compraste?</h3>
+      <h3>¿No sabes cómo conectar tu base de datos?</h3>
+      <h3>¿Quieres ayuda para optimizar tu servidor?</h3>
+      <h3>¿Te interesa un paquete personalizado?</h3>
     </div>
   </div>
 
   <script>
     function showSection(id) {
-      document.querySelectorAll('.section').forEach(section => {
-        section.classList.remove('active');
-      });
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
       document.getElementById(id).classList.add('active');
     }
   </script>
+
 </body>
 </html>

@@ -2,62 +2,178 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>HTML ¬ Hydro Store</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>STORE EPIC</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #000;
+      color: #0f0;
+    }
+
+    header {
+      background-color: #000;
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      color: #00ff00;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+      animation: neonPulse 2s infinite;
+    }
+
+    nav {
+      background: #111;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    nav button {
+      background: transparent;
+      border: none;
+      color: #0f0;
+      font-size: 16px;
+      margin: 0 15px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    nav button:hover {
+      color: #fff;
+    }
+
+    .section {
+      display: none;
+      padding: 40px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .card {
+      background: #111;
+      border: 1px solid #0f0;
+      box-shadow: 0 0 10px #0f0;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 400px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .card h3 {
+      margin: 0 0 10px 0;
+      color: #0f0;
+    }
+
+    .card p {
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    .btn {
+      background: transparent;
+      border: 1px solid #0f0;
+      color: #0f0;
+      padding: 8px 16px;
+      margin: 10px 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #0f0;
+      color: #000;
+    }
+
+    @keyframes neonPulse {
+      0%, 100% {
+        text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+      }
+      50% {
+        text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
 </head>
-<body class="bg-gray-900 text-white font-sans">
+<body>
 
-  <!-- HEADER -->
-  <header class="bg-gray-800 p-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold">HTML ¬ Hydro Store</h1>
-    <nav class="space-x-2">
-      <button onclick="mostrarSeccion('inicio')" class="bg-blue-600 px-3 py-1 rounded hover:bg-blue-700">Inicio</button>
-      <button onclick="mostrarSeccion('resources')" class="bg-blue-600 px-3 py-1 rounded hover:bg-blue-700">Resources MTA</button>
-      <button onclick="mostrarSeccion('cursos')" class="bg-blue-600 px-3 py-1 rounded hover:bg-blue-700">Cursos</button>
-      <button onclick="mostrarSeccion('hosting')" class="bg-blue-600 px-3 py-1 rounded hover:bg-blue-700">Hosting MTA</button>
-    </nav>
-  </header>
+  <header>STORE EPIC</header>
 
-  <!-- SECCIONES -->
-  <main class="p-6">
+  <nav>
+    <button onclick="showSection('inicio')">Inicio</button>
+    <button onclick="showSection('resources')">Resources</button>
+    <button onclick="showSection('cursos')">Cursos</button>
+    <button onclick="showSection('hosting')">Hosting MTA</button>
+    <button onclick="showSection('soporte')">Soporte 24/7</button>
+  </nav>
 
-    <!-- INICIO -->
-    <section id="inicio" class="hidden">
-      <h2 class="text-2xl font-bold mb-2">Bienvenido a HTML ¬ Hydro Store</h2>
-      <p>Aquí encontrarás resources, cursos y hostings para tu servidor MTA.</p>
-    </section>
+  <div id="inicio" class="section active">
+    <h2>Bienvenido a STORE EPIC</h2>
+    <p>Somos una tienda especializada en resources, cursos y hosting para servidores MTA. ¡Potencia tu proyecto con nosotros!</p>
+  </div>
 
-    <!-- RESOURCES -->
-    <section id="resources" class="hidden">
-      <h2 class="text-2xl font-bold mb-2">Resources MTA</h2>
-      <p>Explora nuestra selección de resources listos para usar o editar en tu servidor.</p>
-    </section>
+  <div id="resources" class="section">
+    <h2>Resources</h2>
+    <p>Resources en venta y gratuitos:</p>
 
-    <!-- CURSOS -->
-    <section id="cursos" class="hidden">
-      <h2 class="text-2xl font-bold mb-2">Cursos</h2>
-      <p>Aprende a desarrollar resources, mapas y sistemas para MTA desde cero.</p>
-    </section>
+    <div class="card">
+      <h3>Login Animado V2</h3>
+      <p>Un login profesional con animaciones modernas y conexión a base de datos.</p>
+      <button class="btn" onclick="alert('Visualizando Login Animado V2')">Visualizar</button>
+      <button class="btn" onclick="alert('Comprar Login Animado V2')">Comprar</button>
+    </div>
 
-    <!-- HOSTING -->
-    <section id="hosting" class="hidden">
-      <h2 class="text-2xl font-bold mb-2">Hosting MTA</h2>
-      <p>Conoce nuestros planes de host para que tu servidor funcione 24/7 con calidad.</p>
-    </section>
+    <div class="card">
+      <h3>Panel de Facciones</h3>
+      <p>Panel completo para administración de facciones, editable y responsivo.</p>
+      <button class="btn" onclick="alert('Visualizando Panel de Facciones')">Visualizar</button>
+      <button class="btn" onclick="alert('Comprar Panel de Facciones')">Comprar</button>
+    </div>
 
-  </main>
+    <div class="card">
+      <h3>HUD Estilo GTA V</h3>
+      <p>HUD estilo GTA V con compatibilidad para gamemode Downtown.</p>
+      <button class="btn" onclick="alert('Visualizando HUD')">Visualizar</button>
+      <button class="btn" onclick="alert('Comprar HUD GTA V')">Comprar</button>
+    </div>
 
-  <!-- SCRIPT PARA CAMBIAR DE SECCIÓN -->
+  </div>
+
+  <div id="cursos" class="section">
+    <h2>Cursos</h2>
+    <ul>
+      <li>Curso de HTML desde cero</li>
+      <li>Curso para crear scripts en MTA</li>
+      <li>Curso para crear páginas web profesionales</li>
+    </ul>
+  </div>
+
+  <div id="hosting" class="section">
+    <h2>Hosting MTA</h2>
+    <p>Contrata tu host de servidor MTA con nosotros. Rápido, confiable y con soporte incluido.</p>
+  </div>
+
+  <div id="soporte" class="section">
+    <h2>Soporte 24/7</h2>
+    <p>¿Tienes dudas o necesitas ayuda? Nuestro equipo está disponible las 24 horas del día, todos los días.</p>
+  </div>
+
   <script>
-    function mostrarSeccion(id) {
-      const secciones = ['inicio', 'resources', 'cursos', 'hosting'];
-      secciones.forEach(seccion => {
-        document.getElementById(seccion).classList.add('hidden');
-      });
-      document.getElementById(id).classList.remove('hidden');
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
     }
   </script>
 
 </body>
 </html>
-

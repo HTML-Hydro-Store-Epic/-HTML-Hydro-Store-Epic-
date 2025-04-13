@@ -79,11 +79,35 @@
       padding: 10px 15px;
       border-radius: 5px;
       cursor: pointer;
-      margin-top: 10px;
+      margin: 10px 5px 0 0;
     }
 
     .card button:hover {
       background-color: #00c0ff;
+    }
+
+    .resource-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .resource-item {
+      background-color: #002a54;
+      border-radius: 10px;
+      padding: 20px;
+      flex: 1 1 calc(33.33% - 40px);
+      min-width: 250px;
+      box-shadow: 0 0 10px #00f0ff60;
+    }
+
+    .resource-item h4 {
+      color: #00f0ff;
+      margin-top: 0;
+    }
+
+    .resource-item p {
+      font-size: 0.9rem;
     }
 
     @keyframes fadeIn {
@@ -128,14 +152,27 @@
 
   <div id="resources" class="section">
     <div class="card">
-      <h3>Resources Premium</h3>
-      <p>Scripts únicos para servidores MTA: Login paneles, sistemas de economía, GM completas y más.</p>
-      <button>Ver más</button>
-    </div>
-    <div class="card">
-      <h3>Resources Gratis</h3>
-      <p>Recursos gratuitos de alta calidad listos para usar.</p>
-      <button>Descargar</button>
+      <h3>Resources en venta</h3>
+      <div class="resource-grid">
+        <div class="resource-item">
+          <h4>Login Panel Ultra</h4>
+          <p>Diseño moderno, animaciones suaves y base de datos integrada.</p>
+          <button>Comprar</button>
+          <button>Ver información</button>
+        </div>
+        <div class="resource-item">
+          <h4>Sistema de Economía Avanzado</h4>
+          <p>Incluye bancos, billeteras, cajeros y compatibilidad con tiendas.</p>
+          <button>Comprar</button>
+          <button>Ver información</button>
+        </div>
+        <div class="resource-item">
+          <h4>GM Roleplay</h4>
+          <p>Completa, personalizable, con sistema de facciones y roles legales/ilegales.</p>
+          <button>Comprar</button>
+          <button>Ver información</button>
+        </div>
+      </div>
     </div>
   </div>
 

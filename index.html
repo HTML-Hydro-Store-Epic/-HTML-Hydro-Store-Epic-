@@ -12,6 +12,49 @@
       color: #fff;
     }
 
+    /* PANTALLA DE CONTRASEÑA */
+    #password-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #001f3f;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    #password-screen h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      animation: neonText 2s infinite alternate;
+    }
+
+    #password-input {
+      padding: 10px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    #submit-password {
+      padding: 10px 20px;
+      font-size: 1em;
+      background: white;
+      color: #001f3f;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #submit-password:hover {
+      background: #00f;
+      color: white;
+    }
+
     header {
       text-align: center;
       padding: 30px 0;
@@ -131,6 +174,13 @@
 </head>
 <body>
 
+  <!-- PANTALLA DE CONTRASEÑA -->
+  <div id="password-screen">
+    <h1>En actualización - Ingrese la contraseña para acceder</h1>
+    <input type="password" id="password-input" placeholder="Contraseña..." />
+    <button id="submit-password">Entrar</button>
+  </div>
+
   <header>STORE EPIC ¬ HTML Hydro</header>
 
   <nav>
@@ -237,19 +287,19 @@
         <div class="resource-item">
           <h4>Consultoría Básica</h4>
           <p>Ayuda con instalación de resources o configuración de servidor.</p>
-          <button>Comprar</button>
+          <button>Pedir Soporte</button>
           <button>Ver información</button>
         </div>
         <div class="resource-item">
           <h4>Asistencia Personalizada</h4>
           <p>Soporte avanzado por Discord, incluyendo correcciones en vivo.</p>
-          <button>Comprar</button>
+          <button>Pedir Soporte</button>
           <button>Ver información</button>
         </div>
         <div class="resource-item">
           <h4>Mantenimiento Completo</h4>
           <p>Gestión completa de tu servidor por nuestro equipo técnico.</p>
-          <button>Comprar</button>
+          <button>Pedir Soporte</button>
           <button>Ver información</button>
         </div>
       </div>
@@ -263,6 +313,15 @@
       });
       document.getElementById(id).classList.add('active');
     }
+
+    document.getElementById('submit-password').addEventListener('click', function () {
+      const pass = document.getElementById('password-input').value;
+      if (pass === 'Store Epic12') {
+        document.getElementById('password-screen').style.display = 'none';
+      } else {
+        alert('Contraseña incorrecta');
+      }
+    });
   </script>
 
 </body>

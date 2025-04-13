@@ -6,27 +6,27 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #000;
       color: #0f0;
     }
 
     header {
-      background-color: #000;
       padding: 20px;
       text-align: center;
-      font-size: 2em;
+      font-size: 2.5em;
       font-weight: bold;
       color: #00ff00;
-      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+      text-shadow: 0 0 15px #00ff00;
       animation: neonPulse 2s infinite;
     }
 
     nav {
-      background: #111;
+      background: #0a0a0a;
       display: flex;
       justify-content: center;
       padding: 10px 0;
+      box-shadow: 0 0 10px #00ff00;
     }
 
     nav button {
@@ -34,13 +34,15 @@
       border: none;
       color: #0f0;
       font-size: 16px;
-      margin: 0 15px;
+      margin: 0 20px;
       cursor: pointer;
-      transition: color 0.3s;
+      transition: 0.3s;
+      padding: 10px 15px;
     }
 
     nav button:hover {
       color: #fff;
+      text-shadow: 0 0 10px #0f0;
     }
 
     .section {
@@ -53,25 +55,37 @@
       display: block;
     }
 
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
     .card {
       background: #111;
       border: 1px solid #0f0;
       box-shadow: 0 0 10px #0f0;
       padding: 20px;
-      margin: 20px auto;
-      max-width: 400px;
-      border-radius: 10px;
+      width: 300px;
+      border-radius: 12px;
       text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
     }
 
     .card h3 {
-      margin: 0 0 10px 0;
       color: #0f0;
+      margin-bottom: 10px;
     }
 
     .card p {
-      color: #ccc;
+      color: #aaa;
       font-size: 14px;
+      margin-bottom: 20px;
     }
 
     .btn {
@@ -79,9 +93,10 @@
       border: 1px solid #0f0;
       color: #0f0;
       padding: 8px 16px;
-      margin: 10px 5px;
+      margin: 5px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      border-radius: 6px;
+      transition: 0.3s;
     }
 
     .btn:hover {
@@ -91,10 +106,10 @@
 
     @keyframes neonPulse {
       0%, 100% {
-        text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+        text-shadow: 0 0 10px #0f0;
       }
       50% {
-        text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+        text-shadow: 0 0 20px #0f0, 0 0 40px #0f0;
       }
     }
 
@@ -118,60 +133,93 @@
 
   <div id="inicio" class="section active">
     <h2>Bienvenido a STORE EPIC</h2>
-    <p>Somos una tienda especializada en resources, cursos y hosting para servidores MTA. ¡Potencia tu proyecto con nosotros!</p>
+    <p>Potencia tu servidor MTA con nuestros resources, cursos especializados y hosting optimizado.</p>
   </div>
 
+  <!-- RESOURCES -->
   <div id="resources" class="section">
     <h2>Resources</h2>
-    <p>Resources en venta y gratuitos:</p>
+    <div class="card-container">
+      <div class="card">
+        <h3>Login Animado V2</h3>
+        <p>Diseño profesional con conexión a base de datos y animaciones.</p>
+        <button class="btn" onclick="alert('Visualizando Login Animado V2')">Visualizar</button>
+        <a class="btn" href="https://discord.com/channels/1300963645047705621/1300987698844008491" target="_blank">Comprar</a>
+      </div>
 
-    <div class="card">
-      <h3>Login Animado V2</h3>
-      <p>Un login profesional con animaciones modernas y conexión a base de datos.</p>
-      <button class="btn" onclick="alert('Visualizando Login Animado V2')">Visualizar</button>
-      <button class="btn" onclick="alert('Comprar Login Animado V2')">Comprar</button>
+      <div class="card">
+        <h3>Panel de Facciones</h3>
+        <p>Panel completo para gestión de facciones y roles. Totalmente editable.</p>
+        <button class="btn" onclick="alert('Visualizando Panel de Facciones')">Visualizar</button>
+        <a class="btn" href="https://discord.com/channels/1300963645047705621/1300987698844008491" target="_blank">Comprar</a>
+      </div>
+
+      <div class="card">
+        <h3>HUD Estilo GTA V</h3>
+        <p>HUD realista tipo GTA V, funcional con gamemode Downtown.</p>
+        <button class="btn" onclick="alert('Visualizando HUD GTA V')">Visualizar</button>
+        <a class="btn" href="https://discord.com/channels/1300963645047705621/1300987698844008491" target="_blank">Comprar</a>
+      </div>
     </div>
-
-    <div class="card">
-      <h3>Panel de Facciones</h3>
-      <p>Panel completo para administración de facciones, editable y responsivo.</p>
-      <button class="btn" onclick="alert('Visualizando Panel de Facciones')">Visualizar</button>
-      <button class="btn" onclick="alert('Comprar Panel de Facciones')">Comprar</button>
-    </div>
-
-    <div class="card">
-      <h3>HUD Estilo GTA V</h3>
-      <p>HUD estilo GTA V con compatibilidad para gamemode Downtown.</p>
-      <button class="btn" onclick="alert('Visualizando HUD')">Visualizar</button>
-      <button class="btn" onclick="alert('Comprar HUD GTA V')">Comprar</button>
-    </div>
-
   </div>
 
+  <!-- CURSOS -->
   <div id="cursos" class="section">
-    <h2>Cursos</h2>
-    <ul>
-      <li>Curso de HTML desde cero</li>
-      <li>Curso para crear scripts en MTA</li>
-      <li>Curso para crear páginas web profesionales</li>
-    </ul>
+    <h2>Cursos Disponibles</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Curso de HTML</h3>
+        <p>Aprende a crear sitios web desde cero con HTML y CSS.</p>
+        <button class="btn" onclick="alert('Visualizando curso HTML')">Visualizar</button>
+        <a class="btn" href="https://discord.com/channels/1300963645047705621/1300987698844008491" target="_blank">Comprar</a>
+      </div>
+
+      <div class="card">
+        <h3>Script en MTA</h3>
+        <p>Crea y programa tus propios scripts para servidores de MTA.</p>
+        <button class="btn" onclick="alert('Visualizando curso MTA')">Visualizar</button>
+        <a class="btn" href="https://discord.com/channels/1300963645047705621/1300987698844008491" target="_blank">Comprar</a>
+      </div>
+
+      <div class="card">
+        <h3>Crear Webs Profesionales</h3>
+        <p>Diseña y lanza páginas web modernas para tu comunidad.</p>
+        <button class="btn" onclick="alert('Visualizando curso Web')">Visualizar</button>
+        <a class="btn" href="https://discord.com/channels/1300963645047705621/1300987698844008491" target="_blank">Comprar</a>
+      </div>
+    </div>
   </div>
 
+  <!-- HOSTING -->
   <div id="hosting" class="section">
     <h2>Hosting MTA</h2>
-    <p>Contrata tu host de servidor MTA con nosotros. Rápido, confiable y con soporte incluido.</p>
+    <div class="card-container">
+      <div class="card">
+        <h3>Host Básico</h3>
+        <p>Ideal para empezar. Hasta 30 slots, soporte incluido.</p>
+        <button class="btn" onclick="alert('Visualizando Host Básico')">Visualizar</button>
+        <a class="btn" href="https://discord.com/channels/1300963645047705621/1300987698844008491" target="_blank">Comprar</a>
+      </div>
+
+      <div class="card">
+        <h3>Host Avanzado</h3>
+        <p>Alto rendimiento. Hasta 100 slots y prioridad en soporte.</p>
+        <button class="btn" onclick="alert('Visualizando Host Avanzado')">Visualizar</button>
+        <a class="btn" href="https://discord.com/channels/1300963645047705621/1300987698844008491" target="_blank">Comprar</a>
+      </div>
+    </div>
   </div>
 
+  <!-- SOPORTE -->
   <div id="soporte" class="section">
     <h2>Soporte 24/7</h2>
-    <p>¿Tienes dudas o necesitas ayuda? Nuestro equipo está disponible las 24 horas del día, todos los días.</p>
+    <p>Contáctanos directamente en nuestro Discord para resolver cualquier duda o problema.</p>
   </div>
 
   <script>
-    function showSection(sectionId) {
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(sec => sec.classList.remove('active'));
-      document.getElementById(sectionId).classList.add('active');
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
     }
   </script>
 

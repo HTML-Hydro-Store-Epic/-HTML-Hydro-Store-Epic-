@@ -174,41 +174,29 @@
           <button>Comprar</button>
           <button>Ver información</button>
         </div>
-        <div class="resource-item">
-          <h4>Panel de Administración</h4>
-          <p>Controla todo tu servidor desde un panel central.</p>
-          <button>Comprar</button>
-          <button>Ver información</button>
-        </div>
-        <div class="resource-item">
-          <h4>Animaciones Custom</h4>
-          <p>Paquete de animaciones realistas para interacción de usuarios.</p>
-          <button>Comprar</button>
-          <button>Ver información</button>
-        </div>
       </div>
     </div>
   </div>
 
   <div id="cursos" class="section">
     <div class="card">
-      <h3>Cursos disponibles</h3>
+      <h3>Cursos Disponibles</h3>
       <div class="resource-grid">
         <div class="resource-item">
-          <h4>Curso HTML</h4>
-          <p>Aprende desde cero a crear páginas web modernas.</p>
+          <h4>HTML desde Cero</h4>
+          <p>Aprende a crear sitios web básicos y modernos con HTML y CSS.</p>
           <button>Comprar</button>
           <button>Ver información</button>
         </div>
         <div class="resource-item">
-          <h4>Script en MTA</h4>
-          <p>Curso completo para crear y editar scripts LUA.</p>
+          <h4>Crear Scripts MTA</h4>
+          <p>Curso completo para aprender a programar recursos para MTA SA.</p>
           <button>Comprar</button>
           <button>Ver información</button>
         </div>
         <div class="resource-item">
-          <h4>Crear Webs</h4>
-          <p>Desde landing pages hasta conexiones con bases de datos.</p>
+          <h4>Diseño UI en MTA</h4>
+          <p>Aprende a crear interfaces profesionales para tus resources.</p>
           <button>Comprar</button>
           <button>Ver información</button>
         </div>
@@ -218,23 +206,23 @@
 
   <div id="hosting" class="section">
     <div class="card">
-      <h3>Hosting MTA</h3>
+      <h3>Servicios de Hosting</h3>
       <div class="resource-grid">
         <div class="resource-item">
-          <h4>Hosting Básico</h4>
-          <p>Host 24/7 económico para servidores pequeños.</p>
+          <h4>Plan Básico</h4>
+          <p>Ideal para servidores nuevos, hasta 20 slots y buen rendimiento.</p>
           <button>Comprar</button>
           <button>Ver información</button>
         </div>
         <div class="resource-item">
-          <h4>Hosting Avanzado</h4>
-          <p>Soporte para gamemodes grandes con alto tráfico.</p>
+          <h4>Plan Premium</h4>
+          <p>Hasta 100 slots, acceso root, soporte 24/7 y backups automáticos.</p>
           <button>Comprar</button>
           <button>Ver información</button>
         </div>
         <div class="resource-item">
-          <h4>Hosting Full Pack</h4>
-          <p>Incluye instalación de GM, recursos y panel de control.</p>
+          <h4>Plan Ultimate</h4>
+          <p>Recursos dedicados, IP personalizada y optimización avanzada.</p>
           <button>Comprar</button>
           <button>Ver información</button>
         </div>
@@ -243,19 +231,36 @@
   </div>
 
   <div id="soporte" class="section">
-    <div class="faq">
-      <h2>Contactarme con soporte</h2>
-      <h3>¿Necesitas agregar una GM Downtown a tu host?</h3>
-      <h3>¿Problemas con scripts que compraste?</h3>
-      <h3>¿No sabes cómo conectar tu base de datos?</h3>
-      <h3>¿Quieres ayuda para optimizar tu servidor?</h3>
-      <h3>¿Te interesa un paquete personalizado?</h3>
+    <div class="card">
+      <h3>Soporte 24/7</h3>
+      <div class="resource-grid">
+        <div class="resource-item">
+          <h4>Consultoría Básica</h4>
+          <p>Ayuda con instalación de resources o configuración de servidor.</p>
+          <button>Comprar</button>
+          <button>Ver información</button>
+        </div>
+        <div class="resource-item">
+          <h4>Asistencia Personalizada</h4>
+          <p>Soporte avanzado por Discord, incluyendo correcciones en vivo.</p>
+          <button>Comprar</button>
+          <button>Ver información</button>
+        </div>
+        <div class="resource-item">
+          <h4>Mantenimiento Completo</h4>
+          <p>Gestión completa de tu servidor por nuestro equipo técnico.</p>
+          <button>Comprar</button>
+          <button>Ver información</button>
+        </div>
+      </div>
     </div>
   </div>
 
   <script>
     function showSection(id) {
-      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+      });
       document.getElementById(id).classList.add('active');
     }
   </script>

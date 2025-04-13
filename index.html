@@ -26,6 +26,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
       box-shadow: 0 2px 8px #000;
     }
 
@@ -39,28 +40,21 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      flex-wrap: wrap;
     }
 
-    nav a, nav button {
+    nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
       background: #00e0ff;
       padding: 8px 16px;
       border-radius: 20px;
-      border: none;
-      cursor: pointer;
       transition: background 0.3s;
     }
 
-    nav a:hover, nav button:hover {
+    nav a:hover {
       background: #00b4cc;
-    }
-
-    .tuerca {
-      cursor: pointer;
-      font-size: 24px;
-      color: #00e0ff;
     }
 
     .section {
@@ -69,13 +63,13 @@
       margin: auto;
     }
 
-    .products {
+    .products, .courses, .hosting {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
 
-    .card {
+    .card, .course-card, .hosting-card {
       background: #1c1c2c;
       padding: 20px;
       border-radius: 15px;
@@ -83,21 +77,21 @@
       box-shadow: 0 0 10px #00000055;
     }
 
-    .card img {
+    .card img, .course-card img, .hosting-card img {
       width: 100%;
       border-radius: 10px;
     }
 
-    .card h3 {
+    .card h3, .course-card h3, .hosting-card h3 {
       color: #00e0ff;
     }
 
-    .card p {
+    .card p, .course-card p, .hosting-card p {
       color: #ccc;
       font-size: 14px;
     }
 
-    .card button {
+    .card button, .course-card button, .hosting-card button {
       margin-top: 10px;
       background: #00e0ff;
       color: #000;
@@ -115,85 +109,8 @@
       color: #777;
     }
 
-    .modal-login, .modal-cursos {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.85);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content-login, .modal-content-cursos {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 800px;
-      color: #000;
-      max-height: 90vh;
-      overflow-y: auto;
-    }
-
-    .courses {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .course-card {
-      background: #1c1c2c;
-      padding: 20px;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 0 10px #00000055;
-      color: #fff;
-    }
-
-    .course-card img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    .course-card h3 {
-      color: #00e0ff;
-    }
-
-    .course-card p {
-      color: #ccc;
-      font-size: 14px;
-    }
-
-    .course-card button {
-      margin-top: 10px;
-      background: #00e0ff;
-      color: #000;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 30px;
-      cursor: pointer;
-    }
-
-    .close-btn {
-      background: red;
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 10px;
-      float: right;
-      cursor: pointer;
-    }
-
-    .editable {
-      outline: none;
-    }
-
     .discord-btn {
-      margin: 20px auto 0;
+      margin: 40px auto 0;
       display: block;
       background-color: #5865F2;
       color: white;
@@ -220,25 +137,71 @@
   <header>
     <h1>HTML ¬ Hydro</h1>
     <nav>
-      <button onclick="mostrarCursos()">🎓 Ver Cursos</button>
-      <span class="tuerca" onclick="mostrarLogin()">⚙️</span>
+      <a href="#inicio">Inicio</a>
+      <a href="#resources">Resources</a>
+      <a href="#cursos">Cursos</a>
+      <a href="#hosting">Hosting</a>
+      <a class="discord-btn" href="https://discord.gg/" target="_blank">Conectar Discord</a>
     </nav>
   </header>
 
-  <section class="section">
+  <section id="inicio" class="section">
+    <h2 style="text-align:center;">🎉 Bienvenido a la tienda oficial de HTML ¬ Hydro</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">
+      Aquí encontrarás resources exclusivos para servidores MTA, cursos prácticos para mejorar tus habilidades y servicios de hosting dedicados para tu comunidad.
+    </p>
+  </section>
+
+  <section id="resources" class="section">
     <h2 style="text-align:center;">🛍️ Resources en venta</h2>
     <div class="products">
       <div class="card">
         <img src="https://i.imgur.com/oS6MpKq.jpg" alt="Sistema de Policía">
-        <h3 class="editable">Sistema de Policía</h3>
-        <p class="editable">Incluye base de datos, armas, niveles y menú de cárcel.</p>
+        <h3>Sistema de Policía</h3>
+        <p>Incluye base de datos, armas, niveles y menú de cárcel.</p>
         <button>Comprar</button>
       </div>
       <div class="card">
         <img src="https://i.imgur.com/xlhEodH.jpg" alt="Login Moderno">
-        <h3 class="editable">Login Moderno</h3>
-        <p class="editable">Diseño animado, seguro y fácil de usar.</p>
+        <h3>Login Moderno</h3>
+        <p>Diseño animado, seguro y fácil de usar.</p>
         <button>Comprar</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="cursos" class="section">
+    <h2 style="text-align:center;">🎓 Cursos disponibles</h2>
+    <div class="courses">
+      <div class="course-card">
+        <img src="https://i.imgur.com/NzObwAc.png" alt="HTML Básico">
+        <h3>HTML Básico</h3>
+        <p>Aprende la estructura base del HTML y sus etiquetas.</p>
+        <button>Inscribirse</button>
+      </div>
+      <div class="course-card">
+        <img src="https://i.imgur.com/gcLEbVk.png" alt="Responsive">
+        <h3>Diseño Responsive</h3>
+        <p>Diseña para móviles, tablets y PC desde un solo código.</p>
+        <button>Inscribirse</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="hosting" class="section">
+    <h2 style="text-align:center;">🌐 Planes de Hosting</h2>
+    <div class="hosting">
+      <div class="hosting-card">
+        <img src="https://i.imgur.com/4r0Q7pG.jpg" alt="Plan Básico">
+        <h3>Plan Básico</h3>
+        <p>Ideal para servidores pequeños con 100 slots y protección básica.</p>
+        <button>Contratar</button>
+      </div>
+      <div class="hosting-card">
+        <img src="https://i.imgur.com/fmDZW0b.jpg" alt="Plan Pro">
+        <h3>Plan Pro</h3>
+        <p>Servidor con más rendimiento, slots ilimitados y soporte 24/7.</p>
+        <button>Contratar</button>
       </div>
     </div>
   </section>
@@ -246,79 +209,6 @@
   <footer>
     © 2025 HTML ¬ Hydro. Todos los derechos reservados.
   </footer>
-
-  <!-- Modal Login -->
-  <div id="modalLogin" class="modal-login">
-    <div class="modal-content-login">
-      <h3>Panel Trabajo</h3>
-      <input type="text" placeholder="Usuario" id="user" style="width:100%; margin:10px 0;" />
-      <input type="password" placeholder="Contraseña" id="pass" style="width:100%; margin:10px 0;" />
-      <button onclick="validarLogin()" style="width:100%;">Ingresar</button>
-    </div>
-  </div>
-
-  <!-- Modal Cursos -->
-  <div id="modalCursos" class="modal-cursos">
-    <div class="modal-content-cursos">
-      <button class="close-btn" onclick="cerrarCursos()">Cerrar</button>
-      <h2 style="text-align:center;">🎓 Cursos disponibles</h2>
-      <div class="courses">
-        <div class="course-card">
-          <img src="https://i.imgur.com/NzObwAc.png" alt="HTML Básico">
-          <h3 class="editable">HTML Básico</h3>
-          <p class="editable">Aprende la estructura base del HTML y sus etiquetas.</p>
-          <button>Inscribirse</button>
-        </div>
-        <div class="course-card">
-          <img src="https://i.imgur.com/gcLEbVk.png" alt="Responsive">
-          <h3 class="editable">Diseño Responsive</h3>
-          <p class="editable">Diseña para móviles, tablets y PC desde un solo código.</p>
-          <button>Inscribirse</button>
-        </div>
-      </div>
-      <button class="discord-btn" onclick="iniciarConDiscord()">Iniciar con Discord</button>
-    </div>
-  </div>
-
-  <script>
-    function mostrarLogin() {
-      document.getElementById("modalLogin").style.display = "flex";
-    }
-
-    function validarLogin() {
-      const pass = document.getElementById("pass").value;
-      if (pass === "HtmlStore") {
-        document.querySelectorAll(".editable").forEach(el => {
-          el.setAttribute("contenteditable", "true");
-        });
-        alert("¡Bienvenido diseñador! Ahora puedes editar los recursos y cursos.");
-        document.getElementById("modalLogin").style.display = "none";
-      } else {
-        alert("Contraseña incorrecta.");
-      }
-    }
-
-    function mostrarCursos() {
-      document.getElementById("modalCursos").style.display = "flex";
-    }
-
-    function cerrarCursos() {
-      document.getElementById("modalCursos").style.display = "none";
-    }
-
-    function iniciarConDiscord() {
-      window.open("https://discord.com/oauth2/authorize?client_id=TU_CLIENT_ID&redirect_uri=TU_REDIRECT_URI&response_type=code&scope=identify", "_blank");
-    }
-
-    window.onclick = function(event) {
-      if (event.target === document.getElementById("modalLogin")) {
-        document.getElementById("modalLogin").style.display = "none";
-      }
-      if (event.target === document.getElementById("modalCursos")) {
-        document.getElementById("modalCursos").style.display = "none";
-      }
-    }
-  </script>
 
 </body>
 </html>

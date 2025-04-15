@@ -1,3 +1,5 @@
+# Generamos el HTML completo con el diseño intacto y la nueva funcionalidad de soporte
+codigo_completo = """
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,8 +10,8 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #001f3f;
-      color: #fff;
+      background: #000022;
+      color: #00ffff;
     }
 
     header {
@@ -17,12 +19,11 @@
       padding: 30px 0;
       font-size: 2.5em;
       animation: neonText 2s infinite alternate;
-      color: white;
     }
 
     @keyframes neonText {
-      from { text-shadow: 0 0 10px #00f; }
-      to { text-shadow: 0 0 25px #00f, 0 0 40px #00f; }
+      from { text-shadow: 0 0 10px #00ffff; }
+      to { text-shadow: 0 0 25px #00ffff, 0 0 40px #00ffff; }
     }
 
     nav {
@@ -35,8 +36,8 @@
 
     nav button {
       background: none;
-      border: 2px solid #fff;
-      color: #fff;
+      border: 2px solid #00ffff;
+      color: #00ffff;
       padding: 10px 20px;
       font-size: 1em;
       cursor: pointer;
@@ -44,8 +45,8 @@
     }
 
     nav button:hover {
-      background: #fff;
-      color: #001f3f;
+      background: #00ffff;
+      color: black;
     }
 
     .section {
@@ -61,55 +62,49 @@
     }
 
     .card {
-      background: #002b5c;
-      border: 2px solid #00f;
+      background: #111;
+      border: 2px solid #00ffff;
       padding: 20px;
-      width: 90%;
-      max-width: 1200px;
+      width: 350px;
+      min-height: 280px;
       text-align: center;
-      box-shadow: 0 0 20px #00f;
+      box-shadow: 0 0 20px #00ffff;
       border-radius: 10px;
     }
 
-    .resource-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      margin-top: 20px;
+    .card h3 {
+      margin-bottom: 10px;
     }
 
-    .resource-item {
-      background: #003366;
-      border: 1px solid #00f;
-      padding: 15px;
-      width: 260px;
-      border-radius: 8px;
-    }
-
-    .resource-item h4 {
-      margin-top: 0;
-      color: #fff;
-    }
-
-    .resource-item p {
-      color: #ddd;
-      font-size: 0.95em;
-    }
-
-    .resource-item button {
-      margin: 5px;
-      padding: 8px 14px;
+    .card button {
+      margin: 8px;
+      padding: 10px 18px;
       border: none;
-      background: #fff;
-      color: #001f3f;
+      background: #00ffff;
+      color: black;
       cursor: pointer;
-      font-weight: bold;
+      transition: 0.3s;
     }
 
-    .resource-item button:hover {
-      background: #00f;
-      color: #fff;
+    .card button:hover {
+      background: #00cccc;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border: 5px solid #00ffff;
     }
 
     .faq {
@@ -125,7 +120,33 @@
 
     .faq h3 {
       padding: 12px;
-      border-bottom: 1px solid #fff;
+      border-bottom: 1px solid #00ffff;
+    }
+
+    .soporte-ventana {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #111;
+      padding: 30px;
+      border: 2px solid #00ffff;
+      box-shadow: 0 0 20px #00ffff;
+      color: #00ffff;
+      z-index: 2000;
+    }
+
+    .soporte-ventana h2 {
+      margin-bottom: 15px;
+    }
+
+    .soporte-ventana button {
+      background: #00ffff;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -144,126 +165,125 @@
   <div id="inicio" class="section active">
     <div class="faq">
       <h2>Bienvenido a STORE EPIC</h2>
-      <p>
-        STORE EPIC nació con el objetivo de apoyar a todos los desarrolladores y dueños de servidores de MTA San Andreas en su camino hacia un proyecto exitoso. Empezamos como un pequeño grupo de entusiastas de los scripts y hoy ofrecemos una gran variedad de resources, cursos y servicios profesionales para la comunidad. <br><br>
-        Aquí encontrarás desde resources listos para usar, hasta cursos completos donde te enseñamos a crear tus propios sistemas y páginas web desde cero. También brindamos servicios de hosting optimizados para MTA, soporte personalizado y un equipo siempre dispuesto a ayudarte. <br><br>
-        Nuestra visión es brindar herramientas accesibles, funcionales y modernas para que cualquier servidor —sea grande o pequeño— pueda alcanzar su máximo potencial. STORE EPIC no es solo una tienda: es una comunidad, una guía, y un aliado para tu crecimiento.
-      </p>
+      <p>Desde los primeros días, STORE EPIC nació con el objetivo de reunir lo mejor para los servidores de MTA en un solo lugar. Aquí no solo vendemos scripts: entregamos soluciones, conocimiento y soporte constante para quienes realmente quieren destacar su servidor. Nuestra comunidad ha crecido gracias a la calidad, confianza y atención 24/7. Hoy, STORE EPIC es más que una tienda: es una familia de desarrolladores, creadores y soñadores. Explora nuestros productos y súmate a esta revolución virtual.</p>
     </div>
   </div>
 
   <div id="resources" class="section">
     <div class="card">
-      <h3>Resources en venta</h3>
-      <div class="resource-grid">
-        <div class="resource-item">
-          <h4>Login Panel Ultra</h4>
-          <p>Diseño moderno, animaciones suaves y base de datos integrada.</p>
-          <button>Comprar</button>
-          <button>Ver información</button>
-        </div>
-        <div class="resource-item">
-          <h4>Sistema de Economía</h4>
-          <p>Bancos, billeteras, cajeros y compatibilidad con tiendas.</p>
-          <button>Comprar</button>
-          <button>Ver información</button>
-        </div>
-        <div class="resource-item">
-          <h4>GM Roleplay</h4>
-          <p>GM completa, con sistema de facciones, legales e ilegales.</p>
-          <button>Comprar</button>
-          <button>Ver información</button>
-        </div>
-      </div>
+      <h3>Panel Administrativo</h3>
+      <p>Panel completo para gestionar usuarios y bans.</p>
+      <button onclick="openImage('https://via.placeholder.com/600')">Visualizar</button>
+      <button onclick="goToDiscord()">Comprar</button>
+    </div>
+    <div class="card">
+      <h3>Score System</h3>
+      <p>Sistema de puntajes y rankings automático.</p>
+      <button onclick="openImage('https://via.placeholder.com/600')">Visualizar</button>
+      <button onclick="goToDiscord()">Comprar</button>
+    </div>
+    <div class="card">
+      <h3>Resource Gratis</h3>
+      <p>Scripts básicos y funcionales para empezar.</p>
+      <button onclick="openImage('https://via.placeholder.com/600')">Visualizar</button>
+      <button onclick="goToDiscord()">Descargar</button>
     </div>
   </div>
 
   <div id="cursos" class="section">
     <div class="card">
-      <h3>Cursos Disponibles</h3>
-      <div class="resource-grid">
-        <div class="resource-item">
-          <h4>HTML desde Cero</h4>
-          <p>Aprende a crear sitios web básicos y modernos con HTML y CSS.</p>
-          <button>Comprar</button>
-          <button>Ver información</button>
-        </div>
-        <div class="resource-item">
-          <h4>Crear Scripts MTA</h4>
-          <p>Curso completo para aprender a programar recursos para MTA SA.</p>
-          <button>Comprar</button>
-          <button>Ver información</button>
-        </div>
-        <div class="resource-item">
-          <h4>Diseño UI en MTA</h4>
-          <p>Aprende a crear interfaces profesionales para tus resources.</p>
-          <button>Comprar</button>
-          <button>Ver información</button>
-        </div>
-      </div>
+      <h3>Curso HTML</h3>
+      <p>Aprende desde 0 cómo crear páginas web modernas.</p>
+      <button onclick="openImage('https://via.placeholder.com/600')">Visualizar</button>
+      <button onclick="goToDiscord()">Comprar</button>
+    </div>
+    <div class="card">
+      <h3>Script en MTA</h3>
+      <p>Curso completo para crear y editar scripts LUA.</p>
+      <button onclick="openImage('https://via.placeholder.com/600')">Visualizar</button>
+      <button onclick="goToDiscord()">Comprar</button>
+    </div>
+    <div class="card">
+      <h3>Crear Webs</h3>
+      <p>Desde una landing simple hasta conexión con bases de datos.</p>
+      <button onclick="openImage('https://via.placeholder.com/600')">Visualizar</button>
+      <button onclick="goToDiscord()">Comprar</button>
     </div>
   </div>
 
   <div id="hosting" class="section">
     <div class="card">
-      <h3>Servicios de Hosting</h3>
-      <div class="resource-grid">
-        <div class="resource-item">
-          <h4>Plan Básico</h4>
-          <p>Ideal para servidores nuevos, hasta 20 slots y buen rendimiento.</p>
-          <button>Comprar</button>
-          <button>Ver información</button>
-        </div>
-        <div class="resource-item">
-          <h4>Plan Premium</h4>
-          <p>Hasta 100 slots, acceso root, soporte 24/7 y backups automáticos.</p>
-          <button>Comprar</button>
-          <button>Ver información</button>
-        </div>
-        <div class="resource-item">
-          <h4>Plan Ultimate</h4>
-          <p>Recursos dedicados, IP personalizada y optimización avanzada.</p>
-          <button>Comprar</button>
-          <button>Ver información</button>
-        </div>
-      </div>
+      <h3>Hosting Básico</h3>
+      <p>Host 24/7 económico para servidores pequeños.</p>
+      <button onclick="openImage('https://via.placeholder.com/600')">Visualizar</button>
+      <button onclick="goToDiscord()">Comprar</button>
+    </div>
+    <div class="card">
+      <h3>Hosting Avanzado</h3>
+      <p>Soporte para gamemodes grandes con alto tráfico.</p>
+      <button onclick="openImage('https://via.placeholder.com/600')">Visualizar</button>
+      <button onclick="goToDiscord()">Comprar</button>
+    </div>
+    <div class="card">
+      <h3>Hosting Full Pack</h3>
+      <p>Incluye instalación de GM, recursos y panel de control.</p>
+      <button onclick="openImage('https://via.placeholder.com/600')">Visualizar</button>
+      <button onclick="goToDiscord()">Comprar</button>
     </div>
   </div>
 
   <div id="soporte" class="section">
-    <div class="card">
-      <h3>Soporte 24/7</h3>
-      <div class="resource-grid">
-        <div class="resource-item">
-          <h4>Consultoría Básica</h4>
-          <p>Ayuda con instalación de resources o configuración de servidor.</p>
-          <button>Comprar</button>
-          <button>Ver información</button>
-        </div>
-        <div class="resource-item">
-          <h4>Asistencia Personalizada</h4>
-          <p>Soporte avanzado por Discord, incluyendo correcciones en vivo.</p>
-          <button>Comprar</button>
-          <button>Ver información</button>
-        </div>
-        <div class="resource-item">
-          <h4>Mantenimiento Completo</h4>
-          <p>Gestión completa de tu servidor por nuestro equipo técnico.</p>
-          <button>Comprar</button>
-          <button>Ver información</button>
-        </div>
-      </div>
+    <div class="faq">
+      <h2>Contactarme con soporte</h2>
+      <h3 onclick="abrirSoporte()" style="cursor:pointer;">¿Necesitas ayuda? <u>Contactar soporte</u></h3>
     </div>
+  </div>
+
+  <div id="modal" class="modal" onclick="closeImage()">
+    <img id="modalImage" src="" alt="Vista previa">
+  </div>
+
+  <div id="ventanaSoporte" class="soporte-ventana">
+    <h2>Soporte Técnico</h2>
+    <p>Estamos aquí para ayudarte. Escríbenos a nuestro canal de soporte en Discord para resolver tu problema.</p>
+    <button onclick="cerrarSoporte()">Cerrar</button>
   </div>
 
   <script>
     function showSection(id) {
-      document.querySelectorAll('.section').forEach(section => {
-        section.classList.remove('active');
-      });
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
       document.getElementById(id).classList.add('active');
+    }
+
+    function openImage(url) {
+      document.getElementById('modalImage').src = url;
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    function closeImage() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    function goToDiscord() {
+      window.open("https://discord.com/channels/1300963645047705621/1300987698844008491", "_blank");
+    }
+
+    function abrirSoporte() {
+      document.getElementById("ventanaSoporte").style.display = "block";
+    }
+
+    function cerrarSoporte() {
+      document.getElementById("ventanaSoporte").style.display = "none";
     }
   </script>
 
 </body>
 </html>
+"""
+
+# Guardamos el archivo final
+with open("/mnt/data/store-epic-final.html", "w", encoding="utf-8") as f:
+    f.write(codigo_completo)
+
+"/mnt/data/store-epic-final.html"
+
